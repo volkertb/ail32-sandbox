@@ -116,6 +116,7 @@ void *load_global_timbre(FILE *GTL, unsigned short bank, unsigned short patch)
     unsigned short *timb_ptr;
     static unsigned short len;
 
+#pragma pack (push, 1)
     static struct                  // GTL file header entry structure
     {
         signed char patch;
@@ -123,6 +124,7 @@ void *load_global_timbre(FILE *GTL, unsigned short bank, unsigned short patch)
         unsigned long offset;
     }
     GTL_hdr;
+#pragma pack (pop)
 
     if(GTL == NULL) return NULL;   // if no GTL, return failure
 
